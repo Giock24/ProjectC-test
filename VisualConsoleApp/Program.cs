@@ -4,7 +4,7 @@
 // abbiamo dovuto mettere static perchè Console è una classe statica e non un namespace
 using static System.Console;
 // usato per l'oggetto Marshal
-using System.Runtime.InteropServices;
+// using System.Runtime.InteropServices;
 
 namespace variables 
 {
@@ -26,13 +26,15 @@ namespace variables
                 // MORALE DELLA STORIA: non sprecare la memoria usando solo il tipo int se non ti serve
             */
             
-            ulong age = 24;
-            WriteLine($"Your age is {age} years old");
-            var ageType = age.GetType();
-            WriteLine($"Age type of variable {ageType}");
+            int myInt = 42;
+            // da l'errore perchè stiamo cercando di convertire un tipo di dato più grande in uno più piccolo
+            //byte myByte = myInt; // errore: non si può fare un cast implicito da int a byte
+            byte myByte = (byte) myInt; // cast esplicito da int a uint
+            myByte = 45;
+            WriteLine($"myByte: {myByte}, myInt: {myInt}");
 
-            var ageLength = Marshal.SizeOf(ageType); // ti restiisce la dimensione in bype di questo tipo di variabile
-            WriteLine($"Age lenght {ageLength}");
+            // la conversione non da errore perchè stiamo convertendo un tipo di dato più piccolo in uno più grande
+            long myLong = myInt; // cast implicito da int a long
 
         }
 
