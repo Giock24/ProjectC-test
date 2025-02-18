@@ -7,9 +7,24 @@ namespace variables
         static void Main(string[] args)
         {
             
-            string firstName;
+            // "var" viene messo per fare si che il compilatore capisca che è un tipo di dato esistente
+            var firstName = String.Empty;
             string lastName;
             string age;
+            var bio = 
+            """
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit \n, sed do  \t eiusmod "tempor" incididunt \t ut labore et dolore magna aliqua.
+            """;
+
+            bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit \n, sed do eiusmod \"tempor\" incididunt \t ut labore et dolore magna aliqua.";
+            // Caratteri speciali nelle stringhe
+            // \n = new line va a capo
+            // \t = tab mette uno spazio
+            // mettendo tre virgolette si può scrivere una stringa su più righe senza usare il +
+            // la stringa viene considerata come verbatim string (vuol dire così com'è scritta)
+            // ATTENZIONE: se dentro la stringa ci sono 3 virgolette, bisogna iniziare la stringa con 4 virgolette
+            
 
             Console.WriteLine("Enter your name: ");
             firstName = Console.ReadLine();
