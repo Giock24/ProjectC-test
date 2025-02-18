@@ -36,6 +36,21 @@ namespace variables
             // la conversione non da errore perchè stiamo convertendo un tipo di dato più piccolo in uno più grande
             long myLong = myInt; // cast implicito da int a long
 
+            // il parsing lo si ha per esempio quando da una stringa numericamente formattata si vuole ottenere un numero
+            WriteLine("Inserisci un numero: ");
+            // i parametri che TryParse prende sono: la stringa da convertire e la variabile in cui salvare il risultato
+            // viene messo out perchè nei metodi dove i parametri sono in uscita si deve mettere out
+            if (int.TryParse(ReadLine(), out int firstNum) == true) // TryParse restituisce un booleano che indica se la conversione è andata a buon fine
+            {
+                WriteLine("Hai inserito: " + firstNum);
+            }
+            else
+            {
+                WriteLine("Non hai inserito un numero");
+            }
+            
+
+
         }
 
     }
