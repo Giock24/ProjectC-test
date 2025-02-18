@@ -34,13 +34,18 @@ namespace variables
             firstName = firstName.ToLower();
 
             WriteLine("Enter your first name: ");
-            firstName = ReadLine().Trim(); // Trim è un metodo che elimina gli spazi bianchi all'inizio e alla fine della stringa
+            firstName = ReadLine().Trim().ToUpper(); // Trim è un metodo che elimina gli spazi bianchi all'inizio e alla fine della stringa
 
             WriteLine("Enter your last name: ");
-            lastName = ReadLine().Trim();
+            lastName = ReadLine().Trim().ToLower();
+            
+            // Substring è un pezzo di stringa
+            string rest = lastName.Substring(1); // restituisce una sottostringa a partire da 1 fino alla fine
+            // FirstOrDefault() restituisce il primo carattere della stringa o un valore di default se la stringa è vuota
+            lastName = lastName.FirstOrDefault().ToString().ToUpper() + rest;
 
             WriteLine($"Parameters: {firstName}: {firstName.Length}, {lastName}: {lastName.Length}");
-            
+            // prendo il primo carattere della stringa
             
         }
 
