@@ -1,16 +1,21 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+// in questo modo si importano tutte le classi del namespace System.Console
+// abbiamo dovuto mettere static perchè Console è una classe statica e non un namespace
+using static System.Console;
+
 namespace variables 
 {
     class Program
     {   
         static void Main(string[] args)
         {
+
             
             // "var" viene messo per fare si che il compilatore capisca che è un tipo di dato esistente
-            var firstName = String.Empty;
-            string lastName;
-            string age;
+            var firstName = "Gianluca";
+            string lastName = "Palmieri";
+            string age = "25";
             var bio = 
             """
                 Lorem ipsum dolor sit amet, consectetur 
@@ -25,22 +30,16 @@ namespace variables
             // la stringa viene considerata come verbatim string (vuol dire così com'è scritta)
             // ATTENZIONE: se dentro la stringa ci sono 3 virgolette, bisogna iniziare la stringa con 4 virgolette
             
+            // Ricorda, ogni metodo che modifica una stringa, restituisce una nuova stringa
+            firstName = firstName.ToLower();
 
-            Console.WriteLine("Enter your name: ");
-            firstName = Console.ReadLine();
-            Console.WriteLine("Enter your last name: ");
-            lastName = Console.ReadLine();
-            Console.WriteLine("Enter your age: ");
-            age = Console.ReadLine(); 
+            WriteLine("Enter your first name: ");
+            firstName = ReadLine().Trim(); // Trim è un metodo che elimina gli spazi bianchi all'inizio e alla fine della stringa
 
-            // con concatenazione di stringhe usando l'operatore +
-            //string message = "These are the data you entered: " + firstName + ", " + lastName + ", " + age + "";
-            // con interpolazione di stringhe
-            string message = $"Your name is {firstName}, your last name is {lastName} and you are {age} years old"; // questo è il miglior metodo da usare
-            // con formattazione di stringhe, i numeri definiscono i segnaposto
-            message = String.Format("Your name is {0}, your last name is {1} and you are {2} years old", firstName, lastName, age);
+            WriteLine("Enter your last name: ");
+            lastName = ReadLine().Trim();
 
-            Console.WriteLine(message);
+            WriteLine($"Parameters: {firstName}: {firstName.Length}, {lastName}: {lastName.Length}");
             
             
         }
