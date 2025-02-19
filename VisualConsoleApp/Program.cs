@@ -34,43 +34,19 @@ namespace variables
                 decimal            ±1.0 x 10^-28 to ±7.9228 x 10^28           28-29 digits  16 bytes System.Decimal
             */
 
-            int a = 12, b = 13;
-            int result = a + b;
-            WriteLine(result);
-            result = a - b;
-            WriteLine(result);
-            result = a * b;
-            WriteLine(result);
-            result = a / b;
-            WriteLine(result);
+            int a = 15;
+            int b = 16;
 
-            decimal result2 = (decimal)a / (decimal)b; // ricorda che se non metti il cast il risultato sarà un intero
-            WriteLine($"risultato di divisione con decimal: {result2}");
+            bool isGreaterThan = 7 > 6;
+            bool isLessThan = 7 < 6;
+            bool isEqual = 7 == 6;
+            bool isAGreaterThanB = a > b;
 
-            int remineder = b%a;
-            WriteLine($"resto della divisione: {remineder}");
-            Clear(); // pulisce la console
+            var isCharGreaterThan = 'A' > 'a';
 
-            a++; // incrementa di 1
-            WriteLine(a);
-            a--; // decrementa di 1
-            WriteLine(a);
-
-            ++a; // incrementa di 1
-            WriteLine(a);
-            --a; // decrementa di 1
-            WriteLine(a);
-
-            // la differenza tra i due è che se metti l'operatore prima dell'operando, incrementa o decrementa prima di fare l'operazione
-            // quindi nel primo caso 'a' viene ritornato e poi si incrementa
-            // mentre invece nel secondo caso 'a' viene incrementato e poi ritornato
-
-            
-            WriteLine($"A value is {a}");
-            int x = a++;
-            WriteLine($"A value is {a}, x value is {x}");
-            x = ++a;
-            WriteLine($"A value is {a}, x value is {x}");
+            WriteLine($"{(int)'A'} > {(int)'a'}");
+            WriteLine(isCharGreaterThan);
+            WriteLine("abcd".ToUpper() == "ABCD");
 
 
         }
