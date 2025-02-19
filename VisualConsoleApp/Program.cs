@@ -64,48 +64,50 @@ namespace variables
 
              */
 
-            bool a = true;
-            bool b = false;
-            bool c = false;
-
-            bool result = a && b;
-            WriteLine(result);
-            bool result2 = b && c;
-            WriteLine(result2);
-
-            bool result3 = a && (6 > 5);
-            WriteLine(result3);
-
-            int intValue = -1;
-            // se uno usa && logico fa il cortocircuito, quindi se il primo è falso non valuta il secondo
-            // se uno usa & logico invece valuta entrambi
-            bool result4 = b & (int.TryParse("5a", out intValue));
-            //WriteLine($"{intValue} {result4}");
-
-            bool result5 = a | (int.TryParse("5", out intValue));
-            WriteLine($"intValue = {intValue}; result = {result5}");
-
-            Clear();
-
-            // Unary NOT, !, operator
-            result = !a;
-            WriteLine($"result = {result}");
-
-            result = !b;
-            WriteLine($"result = {result}");
-
-            result = !(4 == 4);
-            WriteLine($"result = {result}");
-
-            if(!result)
+            if(true)
             {
-                WriteLine("result is false");
+                WriteLine("Always true");
             }
 
-            if (result)
+            byte age = 35;
+            bool canEnter = age > 18;
+            
+            if(canEnter)
             {
-                WriteLine("result is true");
+                WriteLine("You can enter");
             }
+            if(age>18)
+            {
+                WriteLine("You can enter: you're more than 18 years old");
+            }
+
+            var hasPaid = false;
+            var yourTheBoss = true;
+            if ((age > 18 && hasPaid) || yourTheBoss)
+            {
+                WriteLine("You can enter");
+            }
+
+            double amount = 0;
+
+            if (age <= 6)
+            {
+                amount = 0;
+            } 
+            else if (age <= 15 && age > 6)
+            {
+                amount = 5;
+            } 
+            else if (age >= 15 && age > 30)
+            {
+                amount = 10;
+            }
+            else
+            {
+                amount = 20;
+            }
+
+            WriteLine($"You are {age} and you have to pay {amount}");
 
 
         }
