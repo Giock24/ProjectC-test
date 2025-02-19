@@ -25,7 +25,7 @@ namespace variables
 
                 // MORALE DELLA STORIA: non sprecare la memoria usando solo il tipo int se non ti serve
             */
-            
+
             /*
                 C# type/keyword    Approximate range                          Precision     Size     .NET type
                 ----------------------------------------------------------------------------------------------
@@ -34,44 +34,29 @@ namespace variables
                 decimal            ±1.0 x 10^-28 to ±7.9228 x 10^28           28-29 digits  16 bytes System.Decimal
             */
 
-            float floatNumber = 3.14159265355897932384626f;
-            double doubleNumber = 3.14159265355897932384626;
-            decimal decimalNumber = 3.14159265355897932384626m; // se c'è qualcosa relativo alla banca usare decimal
+            bool lessThan21 = false;
+            bool canCotinue = true;
 
-            // In questo modo vedo quando tronca il numero
-            WriteLine($"float: {floatNumber} \ndouble: {doubleNumber} \ndecimal: {decimalNumber}");
-
-            doubleNumber = floatNumber;
-            decimalNumber = (decimal)floatNumber; // la conversione implicita potrebbe portare a una perdita di precisione
-
-            decimal result = decimalNumber + 300;
-            WriteLine(result);
-
-            double result2 = doubleNumber + 300;
-            WriteLine(result2);
-
-            float result3 = floatNumber + 300;
-            WriteLine(result3);
-
-            result = 400 + (decimal)doubleNumber;
-
-            // posso fare operazione tra interi e float o double o decimal; però non posso fare operazioni tra i numeri mobili perchè hanno una precisione diversa
-
-            // vediamo come funzionano le uguaglianze con float, double e decimal (SOLO CON I DECIMAL SI è POSSIBILE FARLO)
-            float val1 = 0.1f, val2 = 0.2f;
-            WriteLine($"valore somma non messo in variabile: {val1 + val2}");
-            float res = val1 + val2;
-            WriteLine(res == 0.3f);
-
-            double val3 = 0.1, val4 = 0.2;
-            WriteLine($"valore somma non messo in variabile: {val3 + val4}" );
-            double res2 = val1 + val2;
-            WriteLine(res2 == 0.3);
-
-            decimal val5 = 0.1m, val6 = 0.2m;
-            WriteLine($"valore somma non messo in variabile: {val5 + val6}");
-            decimal res3 = val5 + val6;
-            WriteLine(res3 == 0.3m);
+            // % è l'operatore modulo
+            bool isEven;
+            WriteLine("Insert a number");
+            bool parsed = int.TryParse(ReadLine(), out int number);
+            if (parsed)
+            {
+                isEven = number % 2 == 0;
+                if (isEven)
+                {
+                    WriteLine($"{number} is even");
+                }
+                else
+                {
+                    WriteLine($"{number} is odd");
+                }
+            }
+            else
+            {
+                WriteLine("Invalid number");
+            }
 
 
 
