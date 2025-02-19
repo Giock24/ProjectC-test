@@ -26,29 +26,32 @@ namespace variables
                 // MORALE DELLA STORIA: non sprecare la memoria usando solo il tipo int se non ti serve
             */
             
-            int myInt = 42;
-            // da l'errore perchè stiamo cercando di convertire un tipo di dato più grande in uno più piccolo
-            //byte myByte = myInt; // errore: non si può fare un cast implicito da int a byte
-            byte myByte = (byte) myInt; // cast esplicito da int a uint
-            myByte = 45;
-            WriteLine($"myByte: {myByte}, myInt: {myInt}");
+            /*
+                C# type/keyword    Approximate range                          Precision     Size     .NET type
+                ----------------------------------------------------------------------------------------------
+                float              ±1.5 x 10^-45 to ±3.4 x 10^38              ~6-9 digits   4 bytes  System.Single
+                double             ±5.0 x 10^-324 to ±1.7 x 10^308            ~15-17 digits 8 bytes  System.Double
+                decimal            ±1.0 x 10^-28 to ±7.9228 x 10^28           28-29 digits  16 bytes System.Decimal
+            */
 
-            // la conversione non da errore perchè stiamo convertendo un tipo di dato più piccolo in uno più grande
-            long myLong = myInt; // cast implicito da int a long
+            float floatNumber = 3.14159265355897932384626f;
+            double doubleNumber = 3.14159265355897932384626;
+            decimal decimalNumber = 3.14159265355897932384626m; // se c'è qualcosa relativo alla banca usare decimal
 
-            // il parsing lo si ha per esempio quando da una stringa numericamente formattata si vuole ottenere un numero
-            WriteLine("Inserisci un numero: ");
-            // i parametri che TryParse prende sono: la stringa da convertire e la variabile in cui salvare il risultato
-            // viene messo out perchè nei metodi dove i parametri sono in uscita si deve mettere out
-            if (int.TryParse(ReadLine(), out int firstNum) == true) // TryParse restituisce un booleano che indica se la conversione è andata a buon fine
-            {
-                WriteLine("Hai inserito: " + firstNum);
-            }
-            else
-            {
-                WriteLine("Non hai inserito un numero");
-            }
-            
+            // In questo modo vedo quando tronca il numero
+            WriteLine($"float: {floatNumber} \ndouble: {doubleNumber} \ndecimal: {decimalNumber}");
+
+            doubleNumber = floatNumber;
+            decimalNumber = (decimal)floatNumber; // la conversione implicita potrebbe portare a una perdita di precisione
+
+            decimal result = decimalNumber + 300;
+            WriteLine(result);
+
+            double result2 = doubleNumber + 300;
+            WriteLine(result2);
+
+            float result3 = floatNumber + 300;
+            WriteLine(result3);
 
 
         }
