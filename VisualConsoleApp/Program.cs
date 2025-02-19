@@ -53,6 +53,27 @@ namespace variables
             float result3 = floatNumber + 300;
             WriteLine(result3);
 
+            result = 400 + (decimal)doubleNumber;
+
+            // posso fare operazione tra interi e float o double o decimal; però non posso fare operazioni tra i numeri mobili perchè hanno una precisione diversa
+
+            // vediamo come funzionano le uguaglianze con float, double e decimal (SOLO CON I DECIMAL SI è POSSIBILE FARLO)
+            float val1 = 0.1f, val2 = 0.2f;
+            WriteLine($"valore somma non messo in variabile: {val1 + val2}");
+            float res = val1 + val2;
+            WriteLine(res == 0.3f);
+
+            double val3 = 0.1, val4 = 0.2;
+            WriteLine($"valore somma non messo in variabile: {val3 + val4}" );
+            double res2 = val1 + val2;
+            WriteLine(res2 == 0.3);
+
+            decimal val5 = 0.1m, val6 = 0.2m;
+            WriteLine($"valore somma non messo in variabile: {val5 + val6}");
+            decimal res3 = val5 + val6;
+            WriteLine(res3 == 0.3m);
+
+
 
         }
 
