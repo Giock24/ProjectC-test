@@ -65,44 +65,25 @@ namespace variables
 
              */
 
-            string[] dayNames = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            string[] names = new string[5];
+            names[0] = "Fred";
 
-            WriteLine(dayNames[0]);
+            string[] schools = ["school1", "school2", "school3"]; // meglio usare questa tipologia di inizializzazione perchè in altri linguaggi come Python, Javascript, php è la più comune
 
-            //for (int i = 0; i < dayNames.Length; i++)
-            //{
-            //    WriteLine(dayNames[i]);
-            //}
+            var schools2 = new string[3] { "school1", "school2", "school3" };
+            var schools3 = new [] { "school1", "school2", "school3" };
+            string[] schools4 = { "school1", "school2", "school3" };
 
-            WriteLine($"There are {dayNames.Length} elements");
-
-            foreach (var day in dayNames)
+            for (byte i = 0; i < names.Length; i++)
             {
-                WriteLine(day);
+                WriteLine("Insert student's name");
+                names[i] = ReadLine();
             }
 
-            int[] numbers = new int[args.Length];
-            foreach (var number in args)
+            foreach (string name in names)
             {
-                int i = 0;
-                int result;
-                if (int.TryParse(number, out result))
-                {
-                    numbers[i] = result;
-                }
+                WriteLine(name);
             }
-
-            int valueGreater = Int32.MinValue;
-
-            foreach (var number in numbers)
-            {
-                if (number > valueGreater)
-                {
-                    valueGreater = number;
-                }
-            }
-
-            Console.WriteLine($"Il numero più grande è: {valueGreater}");
 
 
         }
