@@ -34,30 +34,43 @@ namespace variables
                 decimal            ±1.0 x 10^-28 to ±7.9228 x 10^28           28-29 digits  16 bytes System.Decimal
             */
 
-            bool lessThan21 = false;
-            bool canCotinue = true;
+            int a = 12, b = 13;
+            int result = a + b;
+            WriteLine(result);
+            result = a - b;
+            WriteLine(result);
+            result = a * b;
+            WriteLine(result);
+            result = a / b;
+            WriteLine(result);
 
-            // % è l'operatore modulo
-            bool isEven;
-            WriteLine("Insert a number");
-            bool parsed = int.TryParse(ReadLine(), out int number);
-            if (parsed)
-            {
-                isEven = number % 2 == 0;
-                if (isEven)
-                {
-                    WriteLine($"{number} is even");
-                }
-                else
-                {
-                    WriteLine($"{number} is odd");
-                }
-            }
-            else
-            {
-                WriteLine("Invalid number");
-            }
+            decimal result2 = (decimal)a / (decimal)b; // ricorda che se non metti il cast il risultato sarà un intero
+            WriteLine($"risultato di divisione con decimal: {result2}");
 
+            int remineder = b%a;
+            WriteLine($"resto della divisione: {remineder}");
+            Clear(); // pulisce la console
+
+            a++; // incrementa di 1
+            WriteLine(a);
+            a--; // decrementa di 1
+            WriteLine(a);
+
+            ++a; // incrementa di 1
+            WriteLine(a);
+            --a; // decrementa di 1
+            WriteLine(a);
+
+            // la differenza tra i due è che se metti l'operatore prima dell'operando, incrementa o decrementa prima di fare l'operazione
+            // quindi nel primo caso 'a' viene ritornato e poi si incrementa
+            // mentre invece nel secondo caso 'a' viene incrementato e poi ritornato
+
+            
+            WriteLine($"A value is {a}");
+            int x = a++;
+            WriteLine($"A value is {a}, x value is {x}");
+            x = ++a;
+            WriteLine($"A value is {a}, x value is {x}");
 
 
         }
