@@ -2,6 +2,7 @@
 
 // in questo modo si importano tutte le classi del namespace System.Console
 // abbiamo dovuto mettere static perchè Console è una classe statica e non un namespace
+using System.Diagnostics;
 using static System.Console;
 // usato per l'oggetto Marshal
 // using System.Runtime.InteropServices;
@@ -64,50 +65,32 @@ namespace variables
 
              */
 
-            if(true)
+            for(byte count=0; count < 10; ++count)
             {
-                WriteLine("Always true");
+                // WriteLine($"{count}\n");
             }
 
-            byte age = 35;
-            bool canEnter = age > 18;
-            
-            if(canEnter)
-            {
-                WriteLine("You can enter");
-            }
-            if(age>18)
-            {
-                WriteLine("You can enter: you're more than 18 years old");
-            }
+            byte cont = 0;
 
-            var hasPaid = false;
-            var yourTheBoss = true;
-            if ((age > 18 && hasPaid) || yourTheBoss)
-            {
-                WriteLine("You can enter");
-            }
+            //for (; ; )
+            //{
+            //    if (cont>9)
+            //    {
+            //        break;
+            //    }
 
-            double amount = 0;
+            //    WriteLine($"{cont}\n");
+            //    cont++;
+            //}
 
-            if (age <= 6)
+            // cicli annidati
+            for (byte i = 0; i < 10; i++)
             {
-                amount = 0;
-            } 
-            else if (age <= 15 && age > 6)
-            {
-                amount = 5;
-            } 
-            else if (age >= 15 && age > 30)
-            {
-                amount = 10;
+                for (byte j = 0; j < 10; j++)
+                {
+                    WriteLine($"count i = {i}; count j = {j}");
+                }
             }
-            else
-            {
-                amount = 20;
-            }
-
-            WriteLine($"You are {age} and you have to pay {amount}");
 
 
         }
