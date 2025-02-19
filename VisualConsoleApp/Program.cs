@@ -65,40 +65,44 @@ namespace variables
 
              */
 
-            int i = 0;
+            string[] dayNames = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-            //while (i < 10)
+            WriteLine(dayNames[0]);
+
+            //for (int i = 0; i < dayNames.Length; i++)
             //{
-            //    WriteLine($"I value {i}");
-            //    i++;
-            //    if (i >= 5)
-            //    {
-            //        break;
-            //    }
+            //    WriteLine(dayNames[i]);
             //}
 
-            i = 0;
-            while (i < 21)
+            WriteLine($"There are {dayNames.Length} elements");
+
+            foreach (var day in dayNames)
             {
-
-                if (i % 2 != 0)
-                {
-                    i++;
-                    continue; // salta il codice sottostante e va al prossimo ciclo
-                }
-
-                WriteLine($"I value {i}");
-                i++;
+                WriteLine(day);
             }
 
-            for (i = 0; i <= 20; i++)
+            int[] numbers = new int[args.Length];
+            foreach (var number in args)
             {
-                if(i % 2 != 0)
+                int i = 0;
+                int result;
+                if (int.TryParse(number, out result))
                 {
-                    continue;
+                    numbers[i] = result;
                 }
-                WriteLine($"I value {i}");
             }
+
+            int valueGreater = Int32.MinValue;
+
+            foreach (var number in numbers)
+            {
+                if (number > valueGreater)
+                {
+                    valueGreater = number;
+                }
+            }
+
+            Console.WriteLine($"Il numero più grande è: {valueGreater}");
 
 
         }
