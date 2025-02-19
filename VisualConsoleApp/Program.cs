@@ -65,31 +65,39 @@ namespace variables
 
              */
 
-            for(byte count=0; count < 10; ++count)
-            {
-                // WriteLine($"{count}\n");
-            }
+            int i = 0;
 
-            byte cont = 0;
-
-            //for (; ; )
+            //while (i < 10)
             //{
-            //    if (cont>9)
+            //    WriteLine($"I value {i}");
+            //    i++;
+            //    if (i >= 5)
             //    {
             //        break;
             //    }
-
-            //    WriteLine($"{cont}\n");
-            //    cont++;
             //}
 
-            // cicli annidati
-            for (byte i = 0; i < 10; i++)
+            i = 0;
+            while (i < 21)
             {
-                for (byte j = 0; j < 10; j++)
+
+                if (i % 2 != 0)
                 {
-                    WriteLine($"count i = {i}; count j = {j}");
+                    i++;
+                    continue; // salta il codice sottostante e va al prossimo ciclo
                 }
+
+                WriteLine($"I value {i}");
+                i++;
+            }
+
+            for (i = 0; i <= 20; i++)
+            {
+                if(i % 2 != 0)
+                {
+                    continue;
+                }
+                WriteLine($"I value {i}");
             }
 
 
