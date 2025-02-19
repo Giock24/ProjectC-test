@@ -65,25 +65,17 @@ namespace variables
 
              */
 
-            string[] names = new string[5];
-            names[0] = "Fred";
-
-            string[] schools = ["school1", "school2", "school3"]; // meglio usare questa tipologia di inizializzazione perchè in altri linguaggi come Python, Javascript, php è la più comune
-
-            var schools2 = new string[3] { "school1", "school2", "school3" };
-            var schools3 = new [] { "school1", "school2", "school3" };
-            string[] schools4 = { "school1", "school2", "school3" };
-
-            for (byte i = 0; i < names.Length; i++)
+            // Multi-dimensional arrays
+            int[,] grades_old = new int[4, 4];
+            int[,] grades =
             {
-                WriteLine("Insert student's name");
-                names[i] = ReadLine();
-            }
+                {9, 10, 7, 11},
+                {8, 8, 9, 10},
+                {10, 7, 10, 10},
+                {10, 7, 9, 10}
+            };
 
-            foreach (string name in names)
-            {
-                WriteLine(name);
-            }
+            WriteLine($"Mary: English {grades[2,3]}");
 
 
         }
