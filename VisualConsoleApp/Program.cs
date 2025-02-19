@@ -34,19 +34,78 @@ namespace variables
                 decimal            ±1.0 x 10^-28 to ±7.9228 x 10^28           28-29 digits  16 bytes System.Decimal
             */
 
-            int a = 15;
-            int b = 16;
+            // operatori logici
 
-            bool isGreaterThan = 7 > 6;
-            bool isLessThan = 7 < 6;
-            bool isEqual = 7 == 6;
-            bool isAGreaterThanB = a > b;
+            /*
+                && (Logical AND)
+                || (Logical OR)
+                ! (Logical NOT)
 
-            var isCharGreaterThan = 'A' > 'a';
+                    && Truth Table
 
-            WriteLine($"{(int)'A'} > {(int)'a'}");
-            WriteLine(isCharGreaterThan);
-            WriteLine("abcd".ToUpper() == "ABCD");
+                a           b           result
+
+                false       false       false
+                true        false       false
+                false       true        false
+                true        true        true
+
+
+                  || Truth Table
+
+
+                a           b           result
+
+                false       false       false
+                true        false       true
+                false       true        true
+                true        true        true
+
+
+             */
+
+            bool a = true;
+            bool b = false;
+            bool c = false;
+
+            bool result = a && b;
+            WriteLine(result);
+            bool result2 = b && c;
+            WriteLine(result2);
+
+            bool result3 = a && (6 > 5);
+            WriteLine(result3);
+
+            int intValue = -1;
+            // se uno usa && logico fa il cortocircuito, quindi se il primo è falso non valuta il secondo
+            // se uno usa & logico invece valuta entrambi
+            bool result4 = b & (int.TryParse("5a", out intValue));
+            //WriteLine($"{intValue} {result4}");
+
+            bool result5 = a | (int.TryParse("5", out intValue));
+            WriteLine($"intValue = {intValue}; result = {result5}");
+
+            Clear();
+
+            // Unary NOT, !, operator
+            result = !a;
+            WriteLine($"result = {result}");
+
+            result = !b;
+            WriteLine($"result = {result}");
+
+            result = !(4 == 4);
+            WriteLine($"result = {result}");
+
+            if(!result)
+            {
+                WriteLine("result is false");
+            }
+
+            if (result)
+            {
+                WriteLine("result is true");
+            }
 
 
         }
