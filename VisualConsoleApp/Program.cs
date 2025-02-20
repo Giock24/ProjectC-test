@@ -65,6 +65,9 @@ namespace variables
 
              */
 
+            string[] students = { "John", "Tim", "Anne", "Mary" };
+            string[] subjects = { "Physics", "Chemistry", "English", "Math" };
+
             // Multi-dimensional arrays
             int[,] grades_old = new int[4, 4];
             int[,] grades =
@@ -75,7 +78,17 @@ namespace variables
                 {10, 7, 9, 10}
             };
 
-            WriteLine($"Mary: English {grades[2,3]}");
+            //WriteLine($"{students[3]}: {subjects[2]} {grades[3,2]}");
+
+            for( byte i = 0; i < students.Length; i++ )
+            {
+                WriteLine($"Student: {students[i]}");
+                for ( byte j = 0; j < subjects.Length; j++)
+                {
+                    WriteLine($"{students[i]}: {subjects[j]} {grades[i, j]}");
+                }
+                WriteLine("\n");
+            }
 
 
         }
