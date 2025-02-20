@@ -107,7 +107,12 @@ namespace variables
                 WriteLine("You like mango!");
             }
 
-            
+            List<int> numeri = new List<int> { 5, 7, 2, 8, 3 };
+
+            Console.WriteLine($"Il numero più grande è: {numeri.Max()}");
+            Console.WriteLine($"Il numero più piccolo è: {numeri.Min()}");
+
+
 
 
         }
