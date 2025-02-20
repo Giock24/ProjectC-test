@@ -65,30 +65,49 @@ namespace variables
 
              */
 
-            string[] students = { "John", "Tim", "Anne", "Mary" };
-            string[] subjects = { "Physics", "Chemistry", "English", "Math" };
+            // List<T> list = new List<T>();
+            List<int> ints = new List<int>();
 
-            // Multi-dimensional arrays
-            int[,] grades_old = new int[4, 4];
-            int[,] grades =
+            ints.Add(12);
+            for (int i = 0; i < 20; i++)
             {
-                {9, 10, 7, 11},
-                {8, 8, 9, 10},
-                {10, 7, 10, 10},
-                {10, 7, 9, 10}
-            };
-
-            //WriteLine($"{students[3]}: {subjects[2]} {grades[3,2]}");
-
-            for( byte i = 0; i < students.Length; i++ )
-            {
-                WriteLine($"Student: {students[i]}");
-                for ( byte j = 0; j < subjects.Length; j++)
-                {
-                    WriteLine($"{students[i]}: {subjects[j]} {grades[i, j]}");
-                }
-                WriteLine("\n");
+                ints.Add(i);
             }
+
+            foreach (int i in ints)
+            {
+                WriteLine(i);
+            }
+
+            // le tonde si usano per liste vuote
+            var myNumbers = new List<int>();
+            var predefinedNumbers = new List<int> [1, 2, 3, 4];
+
+            //var fruits = new List<string> { "apple", "orange" };
+            //List<string> fruits2 = new() { "apple", "orange" };
+            Clear();
+
+            List<string> fruits = [ "apple", "orange" ]; // al professore piace di più questo modo
+
+            WriteLine("Insert your favorite fruit:");
+            string fruit = ReadLine();
+            if (!string.IsNullOrEmpty(fruit))
+            {
+                fruits.Add(fruit);
+            }
+
+            fruits.Insert(0, "pera");
+            string[] newFruits = { "kiwi", "banana" };
+            fruits.AddRange(newFruits); // AddRange aggiunge un array di elementi alla lista
+
+            // usa il metodo solo se ti serve una riga di codice
+            fruits.ForEach(elem => WriteLine(elem));
+            if(fruits.Contains("mango"))
+            {
+                WriteLine("You like mango!");
+            }
+
+            
 
 
         }
