@@ -10,7 +10,7 @@ using static System.Console;
 namespace variables 
 {
     class Program
-    {   
+    {
         static void Main(string[] args)
         {
 
@@ -67,28 +67,40 @@ namespace variables
 
             // Collections
 
-            // HashSet<int> hashSet = new HashSet<int>();
-            // liste non ordinate e non ci sono duplicati
+            // Queue FIFO. First In, First Out
+            // 1,2,3,4,5,2
 
-            var hobbies = new HashSet<string>();
-            hobbies.Add("Chess");
-            hobbies.Add("Guitar");
+            Queue<int> queue = new();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
 
-            List<string> hobbiesList = ["Running", "Reading", "Watching tv", "Running"];
-            //hobbiesList.ForEach(elem => WriteLine(elem));
+            WriteLine($"There are {queue.Count} elements, and the first is {queue.Peek()}");
 
-            var newHobbies = new HashSet<string>(hobbiesList);
+            int current = queue.Dequeue(); // rimuove il primo elemento
 
-            hobbies.UnionWith(hobbiesList); // UnionWith aggiunge gli elementi di una lista ad un hashset
-            foreach (var hobby in hobbies)
+            WriteLine($"Element value current: {current}; There are {queue.Count} elements, and the first is {queue.Peek()}");
+
+            queue.Clear();// Clear the queue
+
+            WriteLine($"There are {queue.Count} elements");
+            queue.Enqueue(12);
+            if (queue.Count > 0)
             {
-                WriteLine(hobby);
+                WriteLine($"There are {queue.Count} elements, and the first is {queue.Peek()}");
+            }
+            else
+            {
+                WriteLine("There are no elements in the queue");
+
             }
 
-            newHobbies.Remove("Running");
+            // Inizializzazione con elementi che abbiamo già
+            var data = new int[] { 1, 2, 3, 4, 5 };
+            var queueElements = new Queue<int>(data);
+
+            WriteLine($"There are {queueElements.Count} elements, and the first is {queueElements.Peek()}");
 
         }
-
     }
 
 }
