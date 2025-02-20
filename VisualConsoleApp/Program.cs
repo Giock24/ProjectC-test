@@ -65,55 +65,27 @@ namespace variables
 
              */
 
-            // List<T> list = new List<T>();
-            List<int> ints = new List<int>();
+            // Collections
 
-            ints.Add(12);
-            for (int i = 0; i < 20; i++)
+            // HashSet<int> hashSet = new HashSet<int>();
+            // liste non ordinate e non ci sono duplicati
+
+            var hobbies = new HashSet<string>();
+            hobbies.Add("Chess");
+            hobbies.Add("Guitar");
+
+            List<string> hobbiesList = ["Running", "Reading", "Watching tv", "Running"];
+            //hobbiesList.ForEach(elem => WriteLine(elem));
+
+            var newHobbies = new HashSet<string>(hobbiesList);
+
+            hobbies.UnionWith(hobbiesList); // UnionWith aggiunge gli elementi di una lista ad un hashset
+            foreach (var hobby in hobbies)
             {
-                ints.Add(i);
+                WriteLine(hobby);
             }
 
-            foreach (int i in ints)
-            {
-                WriteLine(i);
-            }
-
-            // le tonde si usano per liste vuote
-            var myNumbers = new List<int>();
-            var predefinedNumbers = new List<int> [1, 2, 3, 4];
-
-            //var fruits = new List<string> { "apple", "orange" };
-            //List<string> fruits2 = new() { "apple", "orange" };
-            Clear();
-
-            List<string> fruits = [ "apple", "orange" ]; // al professore piace di più questo modo
-
-            WriteLine("Insert your favorite fruit:");
-            string fruit = ReadLine();
-            if (!string.IsNullOrEmpty(fruit))
-            {
-                fruits.Add(fruit);
-            }
-
-            fruits.Insert(0, "pera");
-            string[] newFruits = { "kiwi", "banana" };
-            fruits.AddRange(newFruits); // AddRange aggiunge un array di elementi alla lista
-
-            // usa il metodo solo se ti serve una riga di codice
-            fruits.ForEach(elem => WriteLine(elem));
-            if(fruits.Contains("mango"))
-            {
-                WriteLine("You like mango!");
-            }
-
-            List<int> numeri = new List<int> { 5, 7, 2, 8, 3 };
-
-            Console.WriteLine($"Il numero più grande è: {numeri.Max()}");
-            Console.WriteLine($"Il numero più piccolo è: {numeri.Min()}");
-
-
-
+            newHobbies.Remove("Running");
 
         }
 
