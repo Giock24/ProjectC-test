@@ -67,50 +67,35 @@ namespace variables
 
             // Collections
 
-            // Queue FIFO. First In, First Out
-            // 1,2,3,4,5,2
+            // LIFO (Last In First Out)
 
-            Queue<int> queue = new();
-            queue.Enqueue(1);
-            queue.Enqueue(2);
+            //Stack<int> stack = new Stack<int>();
+            var stack2 = new Stack<int>();
 
-            WriteLine($"There are {queue.Count} elements, and the first is {queue.Peek()}");
+            // per inserire dato dentro lo stack
+            stack2.Push(1);stack2.Push(2);stack2.Push(3);
+            WriteLine($"We have {stack2.Count} elements. Current value is {stack2.Peek()}");
+            int val = stack2.Pop();
+            WriteLine($"il valore tolto dallo stack è: {val}");
+            WriteLine($"We have {stack2.Count} elements. Current value is {stack2.Peek()}");
 
-            int current = queue.Dequeue(); // rimuove il primo elemento
+            stack2.Clear();
+            WriteLine($"We have {stack2.Count} elements.");
 
-            WriteLine($"Element value current: {current}; There are {queue.Count} elements, and the first is {queue.Peek()}");
+            stack2.Push(1); stack2.Push(2); stack2.Push(3);stack2.Push(2); stack2.Push(3);
 
-            queue.Clear();// Clear the queue
-
-            WriteLine($"There are {queue.Count} elements");
-            queue.Enqueue(12);
-            if (queue.Count > 0)
+            foreach (var item in stack2)
             {
-                WriteLine($"There are {queue.Count} elements, and the first is {queue.Peek()}");
-            }
-            else
-            {
-                WriteLine("There are no elements in the queue");
-
+                WriteLine(item+",");
             }
 
-            // Inizializzazione con elementi che abbiamo già
-            var data = new int[] { 1, 2, 3, 4, 5 };
-            var queueElements = new Queue<int>(data);
+            var dinstictItems = stack2.Distinct();
+            WriteLine();
 
-            WriteLine($"There are {queueElements.Count} elements, and the first is {queueElements.Peek()}");
-
-            var numList = new List<string> { "1", "2", "3", "4" };
-            var queueNumbers = new Queue<string>(numList);
-
-            queueNumbers.Dequeue();
-
-            Console.WriteLine("Queue aggiornata:");
-            foreach (var elem in queueNumbers)
+            foreach (var item in dinstictItems)
             {
-                Console.WriteLine(elem);
+                WriteLine(item + ",");
             }
-
 
         }
     }
