@@ -67,35 +67,42 @@ namespace variables
 
             // Collections
 
-            // LIFO (Last In First Out)
+            // Dictionaries
 
-            //Stack<int> stack = new Stack<int>();
-            var stack2 = new Stack<int>();
+            Dictionary<string, double> fruits = new Dictionary<string, double>();
 
-            // per inserire dato dentro lo stack
-            stack2.Push(1);stack2.Push(2);stack2.Push(3);
-            WriteLine($"We have {stack2.Count} elements. Current value is {stack2.Peek()}");
-            int val = stack2.Pop();
-            WriteLine($"il valore tolto dallo stack è: {val}");
-            WriteLine($"We have {stack2.Count} elements. Current value is {stack2.Peek()}");
+            fruits.Add("Apple", 2.5);
+            fruits.Add("Banana", 1.25);
+            fruits["Pear"] = 2.55;
 
-            stack2.Clear();
-            WriteLine($"We have {stack2.Count} elements.");
+            double applePrice = fruits["Apple"];
+            WriteLine($"The apple price is {applePrice}");
+            fruits.Remove("Banana");
 
-            stack2.Push(1); stack2.Push(2); stack2.Push(3);stack2.Push(2); stack2.Push(3);
-
-            foreach (var item in stack2)
+            foreach (var fruit in fruits)
             {
-                WriteLine(item+",");
+                WriteLine($"The price of {fruit.Key} is {fruit.Value}");
             }
 
-            var dinstictItems = stack2.Distinct();
-            WriteLine();
-
-            foreach (var item in dinstictItems)
+            foreach (var fruit in fruits.Keys)
             {
-                WriteLine(item + ",");
+                WriteLine($"We have {fruit}");
             }
+
+            foreach (var fruit in fruits.Values)
+            {
+                WriteLine($"The price is {fruit}");
+            }
+
+            if(fruits.ContainsKey("Banana"))
+            {
+                WriteLine("We have bananas");
+            }
+            else
+            {
+                WriteLine("We don't have bananas");
+            }
+
 
         }
     }
