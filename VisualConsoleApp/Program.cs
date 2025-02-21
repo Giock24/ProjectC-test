@@ -100,6 +100,18 @@ namespace variables
 
             WriteLine($"There are {queueElements.Count} elements, and the first is {queueElements.Peek()}");
 
+            var numList = new List<string> { "1", "2", "3", "4" };
+            var queueNumbers = new Queue<string>(numList);
+
+            queueNumbers.Dequeue();
+
+            Console.WriteLine("Queue aggiornata:");
+            foreach (var elem in queueNumbers)
+            {
+                Console.WriteLine(elem);
+            }
+
+
         }
     }
 
