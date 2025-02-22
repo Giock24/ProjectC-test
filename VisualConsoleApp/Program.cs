@@ -11,6 +11,8 @@ namespace variables
 {
     class Program
     {
+        // static è un modificatore di accesso che non ha bisogno della creazione
+        // di un oggetto di questa classe (Program) per essere eseguito
         static void Main(string[] args)
         {
 
@@ -65,46 +67,33 @@ namespace variables
 
              */
 
-            // Collections
-
-            // Dictionaries
-
-            Dictionary<string, double> fruits = new Dictionary<string, double>();
-
-            fruits.Add("Apple", 2.5);
-            fruits.Add("Banana", 1.25);
-            fruits["Pear"] = 2.55;
-
-            double applePrice = fruits["Apple"];
-            WriteLine($"The apple price is {applePrice}");
-            fruits.Remove("Banana");
-
-            foreach (var fruit in fruits)
-            {
-                WriteLine($"The price of {fruit.Key} is {fruit.Value}");
-            }
-
-            foreach (var fruit in fruits.Keys)
-            {
-                WriteLine($"We have {fruit}");
-            }
-
-            foreach (var fruit in fruits.Values)
-            {
-                WriteLine($"The price is {fruit}");
-            }
-
-            if(fruits.ContainsKey("Banana"))
-            {
-                WriteLine("We have bananas");
-            }
-            else
-            {
-                WriteLine("We don't have bananas");
-            }
-
+            var car = new Car("Toyota", "Corolla", 2021);
+            var car2 = new Car("Toyota", "Supra", 2009);
+            car.Start();
+            car2.Start();
 
         }
+    }
+
+    class Car 
+    {
+        // di default le proprietà sono private
+        public string Make = "";
+        public string Model = string.Empty;
+        public int Year;
+
+        public Car(string make, string model, int year)
+        {
+            Make = make;
+            Model = model;
+            Year = year;
+        }
+
+        public void Start()
+        {
+            Console.WriteLine($"We have created car: {Make} {Model} of {Year} year");
+        }
+
     }
 
 }
