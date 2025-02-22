@@ -4,11 +4,13 @@
 // abbiamo dovuto mettere static perchè Console è una classe statica e non un namespace
 using System.Diagnostics;
 using static System.Console;
+// using VisualConsoleApp.Models; // in sintesi se abbiamo bisogno di una classe di un altro namespace dobbiamo importarlo
 // usato per l'oggetto Marshal
 // using System.Runtime.InteropServices;
 
-namespace variables 
+namespace VisualConsoleApp
 {
+    using Models;
     class Program
     {
         // static è un modificatore di accesso che non ha bisogno della creazione
@@ -73,27 +75,6 @@ namespace variables
             car2.Start();
 
         }
-    }
-
-    class Car 
-    {
-        // di default le proprietà sono private
-        public string Make = "";
-        public string Model = string.Empty;
-        public int Year;
-
-        public Car(string make, string model, int year)
-        {
-            Make = make;
-            Model = model;
-            Year = year;
-        }
-
-        public void Start()
-        {
-            Console.WriteLine($"We have created car: {Make} {Model} of {Year} year");
-        }
-
     }
 
 }
