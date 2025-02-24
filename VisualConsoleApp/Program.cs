@@ -70,30 +70,30 @@ namespace VisualConsoleApp
              */
 
             // Records
+            var recPerson1 = new RecPerson("Peter", "Parker", 25);
+            recPerson1.Print();
 
-            Person recPerson1;
-            // person1.Age = 30; non si può perchè è già stato inizializzato
-            recPerson1 = new Person("Mario", "Rossi", 30);
-            var recPerson2 = new Person("Mario", "Rossi", 30);
-            var recPerson3 = recPerson2;
-            // con i record dopo il punto ci sono gli == e !=
+            // destrutturare un record significa proprio scomporlo
+            // quindi nel caso volessimo ottenere i valori di un record
+            // in variabili differenti, si può fare in questo modo:
+            var (name, lastName, age) = recPerson1; // destrutturazione in una tupla
+            WriteLine(name); WriteLine(lastName); WriteLine(age);
+            // i record hanno già di base la funzione Deconstruct
 
-            WriteLine(recPerson1.Equals(recPerson2)); // true
-            // ReferenceEquals confronta l'area di memoria
-            WriteLine($"area memoria di recPerson1 e recPerson2 uguale? {object.ReferenceEquals(recPerson1, recPerson2)}");
-            WriteLine($"area memoria di recPerson2 e recPerson3 uguale? {object.ReferenceEquals(recPerson2, recPerson3)}");
-            WriteLine("-------------------------------------------");
 
-            Person2 classPerson1 = new Person2("Mario", "Rossi", 30);
-            var classPerson2 = new Person2("Mario", "Rossi", 30);
-            var classPerson3 = classPerson2;
-            WriteLine(classPerson1.Equals(classPerson2)); // false
-            WriteLine(object.ReferenceEquals(classPerson1, classPerson2));
-            WriteLine(object.ReferenceEquals(classPerson2, classPerson3));
-            //person2.Age = 31; // non puoi modificare il valore dei campi
+            var teacher = new Teacher("University", "second", "Mirko", "Viroli", 55);
+            teacher.Print();
 
-            // questo accade perchè nei record l'operatore di confronto è sovrascritto
-            // in modo tale da comparare le proprietà e non l'area di memoria
+            // object initializer
+            var classPerson = new Classperson {
+                Name = "Peter",
+                LastName = "Parker",
+                Age = 25
+            };
+
+            var (name1, lastName1, age1) = classPerson;
+            WriteLine(name1); WriteLine(lastName1); WriteLine(age1);
+
 
 
         }
